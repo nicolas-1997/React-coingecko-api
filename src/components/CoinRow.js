@@ -3,10 +3,20 @@ import React from 'react'
 const CoinRow = ({coin, index}) =>{
     console.log(coin, index)
     return(
-            <tr key={coin.name}>
+            <tr>
+                <td>{index}</td>
                 <td>
-                    {coin.name}
+                    <img src={coin.image} alt={coin.name} style={{width: '3%'}} className='img-fluid me-4'/>
+                    <span  className='me-3'>
+                        {coin.name}
+                    </span>
+                    <span className='text-muted text-uppercase'>{coin.symbol}</span>
                 </td>
+                <td>{coin.current_price}</td>
+                <td className={coin.price_change_percentage_24h > 0 ? "text-success": "text-danger"}>{coin.price_change_percentage_24h}</td>
+                <td>{coin.total_volume}</td>
+
+
             </tr>    
     )
 }
